@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body onload="loadXMLDoc()">
+
+<table id="Employees"></table>
+
+<script>
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xmlhttp.open("GET", "employee1.xml", true);
+  xmlhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Employee ID</th><th>email</th><th>Last Name</th><th>first name</th></tr>";
+  var x = xmlDoc.getElementsByTagName("employees");
+  for (i = 0; i <x.length; i++) {
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("id")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("firstname")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("lastname")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("Employees").innerHTML = table;
+}
+</script>
+<a href="back.html">More options</a>
+</body>
+</html>

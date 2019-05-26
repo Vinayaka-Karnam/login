@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="Environment.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="myapp" ng-controller="tableController">
+   <table class="table table-stripe" border="1" >
+     <thead><tr>
+       <th>xbeeid</th>
+       <th>moteid</th>
+       <th> motelocation </th>
+        <th> hubname </th>
+         <th> temperature </th>
+          <th> airpressure </th>
+           <th> humidity </th>
+            <th> light </th>
+             <th> altitude </th>
+              <th> mic </th>
+               <th> gas </th>
+
+      </tr></thead>
+     <tbody>
+       <tr ng-repeat="sensor in sensorreadinglist">
+         <td> {{ sensor.xbeeid }}</td>
+         <td> {{ sensor.moteid }}</td>
+         <td> {{ sensor.motelocation }}</td>
+         <td> {{ sensor.hubname }}</td>
+         <td> {{ sensor.temperature }}</td>
+         <td> {{ sensor.airpressure }} </td>
+         <td> {{ sensor.humidity }} </td>
+         <td> {{ sensor.light }}</td>
+         <td> {{ sensor.altitude }}</td>
+         <td> {{ sensor.mic }}</td>
+          <td> {{ sensor.gas }}</td>
+       </tr>
+     </tbody>
+   </table>
+   <br>
+   <a href="back.html">More options</a>
+ </body>
+   </html>
